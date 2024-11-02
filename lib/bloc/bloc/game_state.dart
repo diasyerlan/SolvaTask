@@ -1,21 +1,19 @@
 part of 'game_bloc.dart';
 
 @immutable
-sealed class GameState extends Equatable {
-  const GameState();
-
+abstract class GameState extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-final class GameInitial extends GameState {
+class GameInitial extends GameState {
   final int maxNumber;
   final int attempts;
 
-  const GameInitial({this.maxNumber = 100, this.attempts = 5});
+  GameInitial({required this.maxNumber, required this.attempts});
 
   @override
-  List<Object> get props => [maxNumber, attempts];
+  List<Object?> get props => [maxNumber, attempts];
 }
 
 class GameInProgress extends GameState {
@@ -24,41 +22,42 @@ class GameInProgress extends GameState {
   final int targetNumber;
   final String guessMessage;
 
-  const GameInProgress({required this.maxNumber, required this.attemptsLeft, required this.targetNumber, this.guessMessage = ''});
+  GameInProgress({
+    required this.maxNumber,
+    required this.attemptsLeft,
+    required this.targetNumber,
+    required this.guessMessage,
+  });
 
   @override
   List<Object?> get props => [maxNumber, attemptsLeft, targetNumber, guessMessage];
-
-
 }
 
 class GameSuccess extends GameState {
   final int targetNumber;
 
-  const GameSuccess({required this.targetNumber});
-  
+  GameSuccess({required this.targetNumber});
+
   @override
-  List<Object> get props => [targetNumber];
+  List<Object?> get props => [targetNumber];
 }
 
 class GameFailure extends GameState {
   final int targetNumber;
 
-  const GameFailure({required this.targetNumber});
-  
+  GameFailure({required this.targetNumber});
+
   @override
-  List<Object> get props => [targetNumber];
+  List<Object?> get props => [targetNumber];
 }
 
 class GameSettings extends GameState {
   final int maxNumber;
-  final int attempts; 
+  final int attempts;
 
-  const GameSettings({
-    required this.maxNumber,
-    required this.attempts,
-  });
-  
+  GameSettings({required this.maxNumber, required this.attempts});
+
   @override
-  List<Object> get props => [maxNumber, attempts];
-  }
+  List<Object?> get props => [maxNumber, attempts];
+}
+
