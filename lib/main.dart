@@ -11,7 +11,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => GameBloc()..add(InitializeGame(maxNumber: 100, attempts: 20)))
       ],
       child: ScreenUtilInit(
-        designSize: const Size(430, 1990), // Example design size
+        designSize: const Size(430, 1990),
         minTextAdapt: true, 
         builder: (context, child) {
           return const MaterialApp(

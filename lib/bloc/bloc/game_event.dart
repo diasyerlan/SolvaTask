@@ -36,4 +36,3 @@ class SubmitGuess extends GameEvent {
 }
 
 class OpenSettings extends GameEvent {}
-
