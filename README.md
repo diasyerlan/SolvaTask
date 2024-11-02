@@ -24,6 +24,10 @@ flutter devices
 ```
 ### 4. Запустить приложение
 ```bash
+flutter run
+```
+## Запуск тестов
+```bash
 flutter test
 ```
 ## Дополнительная информация
