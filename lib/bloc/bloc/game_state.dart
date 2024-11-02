@@ -30,7 +30,8 @@ class GameInProgress extends GameState {
   });
 
   @override
-  List<Object?> get props => [maxNumber, attemptsLeft, targetNumber, guessMessage];
+  List<Object?> get props =>
+      [maxNumber, attemptsLeft, targetNumber, guessMessage];
 }
 
 class GameSuccess extends GameState {
@@ -60,4 +61,3 @@ class GameSettings extends GameState {
   @override
   List<Object?> get props => [maxNumber, attempts];
 }
-
