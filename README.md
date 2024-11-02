@@ -1,16 +1,31 @@
-# solva_app
+# SolvaTech test task
 
-A new Flutter project.
+## Предварительные требования
+- Установленный Flutter SDK (версия 3.0.0 или выше)
+- Dart SDK (идет в комплекте с Flutter)
+- IDE (например, Visual Studio Code или Android Studio)
+- Эмулятор или физическое устройство для тестирования
 
-## Getting Started
+## Начало работы
 
-This project is a starting point for a Flutter application.
+### 1. Клонировать репозиторий
+```bash
+git clone https://github.com/yourusername/solva_app.git
+cd solva_app
+```
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 2. Установить зависимости
+```bash
+flutter pub get
+```
+### 3. Настроить эмулятор или подключить устройство
+```bash
+flutter devices
+```
+### 4. Запустить приложение
+```bash
+flutter test
+```
+## Дополнительная информация
+- Для получения дополнительной информации о Flutter посетите flutter.dev.
+- Для получения дополнительной информации о пакете Bloc посетите bloclibrary.dev.
