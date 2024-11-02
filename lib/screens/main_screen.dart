@@ -57,7 +57,9 @@ class _MainScreenState extends State<MainScreen> {
       create: (context) =>
           GameBloc()..add(InitializeGame(maxNumber: 100, attempts: 20)),
       child: GestureDetector(
-        onTap: () {FocusScope.of(context).unfocus();},
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
         child: Scaffold(
           backgroundColor: Colors.deepPurple[100],
           body: BlocBuilder<GameBloc, GameState>(builder: (context, state) {
@@ -97,20 +99,24 @@ class _MainScreenState extends State<MainScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-              child: Text(state is GameSuccess ? 'Congrats!' : 'Game Over!', style: TextStyle(fontSize: 20.sp),)),
+              child: Text(
+            state is GameSuccess ? 'Congrats!' : 'Game Over!',
+            style: TextStyle(fontSize: 20.sp),
+          )),
           Center(
             child: Text.rich(
               TextSpan(
                 children: [
                   TextSpan(
-                    text: state is GameFailure
-                        ? 'The number was '
-                        : 'You guessed the number',style: TextStyle(fontSize: 20.sp)
-                  ),
+                      text: state is GameFailure
+                          ? 'The number was '
+                          : 'You guessed the number',
+                      style: TextStyle(fontSize: 20.sp)),
                   if (state is GameFailure)
                     TextSpan(
                       text: '${state.targetNumber}',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20.sp),
                     ),
                 ],
               ),
@@ -197,7 +203,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Padding _buildGameScreen(BuildContext context, GameInProgress state) {
     return Padding(
-      padding:  EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(16.w),
       child: SizedBox(
         width: double.infinity,
         child: Column(
@@ -205,18 +211,33 @@ class _MainScreenState extends State<MainScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const SizedBox(),
-            Text(
-              'Guess a number between 1 and ${state.maxNumber}',
-              style: GoogleFonts.play(fontSize: 32.sp),
-              textAlign: TextAlign.center,
+            Column(
+              children: [
+                Text(
+                  'Guess a number between',
+                  style: GoogleFonts.play(fontSize: 32.sp),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  '1 and ${state.maxNumber}',
+                  style: GoogleFonts.play(fontSize: 32.sp),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
             Column(
               children: [
-                Text(state.guessMessage, style: TextStyle(fontSize: 18.sp),),
-                SizedBox(height: 24.h,),
-         
-                 CustomTextField(controller: _guessController),
-                SizedBox(height: 14.h,),
+                Text(
+                  state.guessMessage,
+                  style: TextStyle(fontSize: 18.sp),
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                CustomTextField(controller: _guessController),
+                SizedBox(
+                  height: 14.h,
+                ),
                 GestureDetector(
                   onTap: () {
                     if (_isSubmitInputValid) {
@@ -241,7 +262,10 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                Text('You have ${state.attemptsLeft} attempts left', style: TextStyle(fontSize: 18.sp),),
+                Text(
+                  'You have ${state.attemptsLeft} attempts left',
+                  style: TextStyle(fontSize: 18.sp),
+                ),
               ],
             ),
             const SizedBox(),
@@ -256,7 +280,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   );
                 },
-                child:  Text(
+                child: Text(
                   'End the game',
                   style: TextStyle(color: Colors.deepPurple, fontSize: 18.sp),
                 ),
@@ -303,7 +327,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 SizedBox(height: 20.h),
-                 Text(
+                Text(
                   'Tap anywhere to play',
                   style: TextStyle(color: Colors.deepPurple, fontSize: 18.sp),
                 ),
